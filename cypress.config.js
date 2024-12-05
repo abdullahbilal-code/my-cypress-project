@@ -6,8 +6,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-  baseUrl: "https://www.linkedin.com/",
+  baseUrl: "https://opensource-demo.orangehrmlive.com/",
   viewportHeight:600,
-  viewportWidth: 650
+  viewportWidth: 650,
+  experimentalStudio:true  
   },
 });

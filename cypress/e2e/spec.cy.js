@@ -11,7 +11,7 @@ describe('OrangeHRM Login and Logout Test', () => {
       });
     });
 
-    it.only('Logs in and out successfully', ()=>{
+    it('Logs in and out successfully', ()=>{
         cy.visit('/')
 
         cy.contains("h5","Login")
@@ -54,6 +54,11 @@ describe('OrangeHRM Login and Logout Test', () => {
       //Verify the Logout Event
       cy.url().should('include', '/auth/login');
 
+    })
+
+    it.only('Cypress Assertions',()=>{
+      cy.visit('/')
+      cy.url().should('include', '/auth/login')
     })
 
 
