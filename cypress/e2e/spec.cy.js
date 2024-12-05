@@ -58,7 +58,8 @@ describe('OrangeHRM Login and Logout Test', () => {
 
     it.only('Cypress Assertions',()=>{
       cy.visit('/')
-      cy.url().should('include', '/auth/login')
+      cy.url().should('include', '/auth/login') 
+
     })
 
 
