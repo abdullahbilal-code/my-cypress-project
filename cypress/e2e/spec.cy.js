@@ -1,3 +1,5 @@
+
+
 describe('OrangeHRM Login and Logout Test', () => {
     
     beforeEach(() => {
@@ -11,7 +13,7 @@ describe('OrangeHRM Login and Logout Test', () => {
       });
     });
 
-    it('Logs in and out successfully', ()=>{
+    it.skip('Logs in and out successfully', ()=>{
         cy.visit('/')
 
         cy.contains("h5","Login")
@@ -42,7 +44,7 @@ describe('OrangeHRM Login and Logout Test', () => {
         // cy.get('.oxd-button').click();
         /* ==== End Cypress Studio ==== */
     });
-    it('LogIn through Xpath ', ()=>{
+    it.skip('LogIn through Xpath ', ()=>{
       cy.visit('/')
       cy.xpath("//input[@placeholder='Username']").type('Admin')
       cy.xpath("//input[@placeholder='Password']").type('admin123')
@@ -56,10 +58,27 @@ describe('OrangeHRM Login and Logout Test', () => {
 
     })
 
-    it.only('Cypress Assertions',()=>{
+    it.skip('Cypress Assertions on Login Page',()=>{
       cy.visit('/')
       cy.url().should('include', '/auth/login') 
+      cy.get("input[placeholder='Username']").type('Admin')
+      cy.get("input[placeholder='Password']" ).focus().type('admin123')
+      cy.get("button[type='submit']")//.should('be.visible')
+        .should('have.length.at.least',1).click()
 
+    
+    })
+    it("Chaining and Retrying", ()=>{
+      cy.visit('/')
+
+      //First LogIn to Orange HRM
+      cy.url().should('include', '/auth/login') 
+      cy.get("input[placeholder='Username']").type('Admin')
+      cy.get("input[placeholder='Password']" ).focus().type('admin123')
+      cy.get("button[type='submit']").click()
+
+      cy.get('.orangehrm-attendance-card-bar').should('have.text','4h 38m Today')
+      
     })
 
 
