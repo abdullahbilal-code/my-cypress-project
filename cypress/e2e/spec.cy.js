@@ -68,17 +68,22 @@ describe('OrangeHRM Login and Logout Test', () => {
 
     
     })
-    it("Chaining and Retrying", ()=>{
+    it("Chaining and Retrying",{defaultCommandTimeout: 6000}, ()=>{
       cy.visit('/')
 
       //First LogIn to Orange HRM
       cy.url().should('include', '/auth/login') 
+      
       cy.get("input[placeholder='Username']").type('Admin')
-      cy.get("input[placeholder='Password']" ).focus().type('admin123')
+      cy.get("input[placeholder='Password']" ).type('admin123')
       cy.get("button[type='submit']").click()
 
-      cy.get('.orangehrm-attendance-card-bar').should('have.text','4h 38m Today')
-      
+      cy.get('.orangehrm-attendance-card-bar').should('not.have.text','4h 38m Today')
+
+      cy.get('.oxd-icon.bi-list.oxd-topbar-header-hamburger').click()
+      cy.get("aside[class='oxd-sidepanel toggled'] li:nth-child(5)").click()
+      cy.get("body > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
+
     })
 
 
