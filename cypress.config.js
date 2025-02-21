@@ -6,12 +6,17 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-  baseUrl: "https://opensource-demo.orangehrmlive.com/",
+  baseUrl: "https://tree.taiga.io/login",
+  setupNodeEvents(on, config) {
+
+    require('@applitools/eyes-cypress')(on, config);
+    return config;
+},
   viewportHeight:600,
-  viewportWidth: 650,
+  viewportWidth: 950,
   experimentalStudio:true  
   },
 });
 
-
 require('@applitools/eyes-cypress')(module);
+

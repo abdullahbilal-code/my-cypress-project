@@ -82,7 +82,7 @@ describe('OrangeHRM Login and Logout Test', () => {
 
       cy.get('.oxd-icon.bi-list.oxd-topbar-header-hamburger').click()
       cy.get("aside[class='oxd-sidepanel toggled'] li:nth-child(5)").click()
-      cy.get("body > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
+      cy.get("div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(2)");
 
     })
 
